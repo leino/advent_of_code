@@ -5,10 +5,9 @@ module AdventOfCode.Solution03Part1 (solution) where
 distance :: Integer -> Integer
 distance 0 = 0
 distance i =
-  s + (abs $ s - k - 1)
+  s + (abs $ s - 1 - ((i - 1) `mod` (2*s)))
   where
   s = toInteger $ ceiling $ ((sqrt $ fromInteger $ i + 1) - 1)/2
-  k = (i - 1) `mod` (2*s)
 
 solution :: Integer -> Integer
 solution i = distance $ i - 1
